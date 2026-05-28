@@ -26,6 +26,7 @@ resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.roboshop.id
   count                   = length(var.public_subnet_cidrs)
   cidr_block              = var.public_subnet_cidrs[count.index]
+  availability_zone = local.az_names[count.index]
   map_public_ip_on_launch = true
 
   tags = merge(local.common_tags, var.public_subnet_tags, {
@@ -38,6 +39,7 @@ resource "aws_subnet" "private" {
   vpc_id     = aws_vpc.roboshop.id
   count      = length(var.private_subnet_cidrs)
   cidr_block = var.private_subnet_cidrs[count.index]
+  availability_zone = local.az_names[count.index]
   tags = merge(local.common_tags, var.private_subnet_tags, {
     Name = "${local.name}-private-${local.az_names[count.index]}"
     }
@@ -48,6 +50,7 @@ resource "aws_subnet" "database" {
   vpc_id     = aws_vpc.roboshop.id
   count      = length(var.database_subnet_cidrs)
   cidr_block = var.database_subnet_cidrs[count.index]
+  availability_zone = local.az_names[count.index]
   tags = merge(
     local.common_tags, 
     var.database_subnet_tags,

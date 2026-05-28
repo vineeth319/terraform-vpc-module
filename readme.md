@@ -150,7 +150,7 @@ Resources follow the naming format:
 
 ```text
 roboshop-dev-public-us-east-1a
-roboshop-dev-private-us-east-1b
+roboshop-dev-private-us-east-1a
 roboshop-dev-database-us-east-1a
 ```
 
