@@ -30,7 +30,7 @@ A reusable Terraform module for provisioning a production-ready AWS VPC with:
 
 ```hcl
 module "vpc" {
-  source = "git::https://github.com/vineeth319/terraform-modules.git?ref=main"
+  source = "git::https://github.com/vineeth319/terraform-vpc-module.git?ref=main"
 
   project     = "roboshop"
   environment = "dev"
